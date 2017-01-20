@@ -1,0 +1,24 @@
+{
+  "title": "Le Bon Coin",
+  "type": "object",
+  "properties": {
+    "price": {
+      "type": "double",
+      "minimum":0
+    },
+    "town": {
+      "postCode": {"type":"integer"},
+      "name": {"type":"string"}
+    },
+    "type": {"type":"string"},
+    "nbPieces": {
+      "type":"integer",
+      "minimum":0
+    },
+    "surface": {
+      "type":"float",
+      "minimum":0.00
+    }
+  },
+  "required": ["price", "town", "type", "surface"]
+}
