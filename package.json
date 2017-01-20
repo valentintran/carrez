@@ -1,0 +1,20 @@
+{
+  "name": "carrez",
+  "version": "1.0.0",
+  "description": "> node.js workshop based on real estate",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valentintran/carrez.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/valentintran/carrez/issues"
+  },
+  "homepage": "https://github.com/valentintran/carrez#readme"
+}
