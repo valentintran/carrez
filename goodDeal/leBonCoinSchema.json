@@ -11,10 +11,6 @@
       "name": {"type":"string"}
     },
     "type": {"type":"string"},
-    "nbPieces": {
-      "type":"integer",
-      "minimum":0
-    },
     "surface": {
       "type":"float",
       "minimum":0.00
