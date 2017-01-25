@@ -4,7 +4,7 @@ var request = require('request');
 var cheerio = require('cheerio');
 var app = express();
 
-app.get('/scrape', function(req, res) {
+app.get('', function(req, res) {
     // Let's scrape Anchorman 2
     url = 'https://www.leboncoin.fr/ventes_immobilieres/1076257949.htm?ca=12_s';
 
@@ -48,7 +48,7 @@ app.get('/scrape', function(req, res) {
             });
         }
 
-        fs.writeFile('output.json', JSON.stringify(json, null, 4), function(err) {
+        fs.writeFile('outputLBC.json', JSON.stringify(json, null, 4), function(err) {
             console.log('File successfully written! - Check your project directory for the output.json file');
         })
 
