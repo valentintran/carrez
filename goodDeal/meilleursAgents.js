@@ -18,16 +18,16 @@ app.get('', function(req, res) {
                 priceFlatLow: "",
                 priceHouseMed: "",
                 priceFlatMed: "",
-                priceHouseUp: "",
-                priceFlatUp: "",
+                priceHouseHigh: "",
+                priceFlatHigh: "",
             };
 
             var link_priceHouseLow = "#synthese > div > div.prices-summary__values > div:nth-child(3) > div.small-4.medium-2.medium-offset-0.columns.prices-summary__cell--muted";
             var link_priceFlatLow = "#synthese > div > div.prices-summary__values > div:nth-child(2) > div.small-4.medium-2.medium-offset-0.columns.prices-summary__cell--muted";
             var link_priceHouseMed = "#synthese > div > div.prices-summary__values > div:nth-child(3) > div.small-4.medium-2.columns.prices-summary__cell--median";
             var link_priceFlatMed = "#synthese > div > div.prices-summary__values > div:nth-child(2) > div.small-4.medium-2.columns.prices-summary__cell--median";
-            var link_priceHouseUp = "#synthese > div > div.prices-summary__values > div:nth-child(3) > div:nth-child(4)";
-            var link_priceFlatUp = "#synthese > div > div.prices-summary__values > div:nth-child(2) > div:nth-child(4)";
+            var link_priceHouseHigh = "#synthese > div > div.prices-summary__values > div:nth-child(3) > div:nth-child(4)";
+            var link_priceFlatHigh = "#synthese > div > div.prices-summary__values > div:nth-child(2) > div:nth-child(4)";
 
             $(link_priceHouseLow).each(function() {
                 var link = $(this);
@@ -39,10 +39,10 @@ app.get('', function(req, res) {
                 var text = link.text().trim();
                 json.priceHouseMed = text;
             });
-            $(link_priceHouseUp).each(function() {
+            $(link_priceHouseHigh).each(function() {
                 var link = $(this);
                 var text = link.text().trim();
-                json.priceHouseUp = text;
+                json.priceHouseHigh = text;
             });
             $(link_priceFlatLow).each(function() {
                 var link = $(this);
@@ -54,10 +54,10 @@ app.get('', function(req, res) {
                 var text = link.text().trim();
                 json.priceFlatMed = text;
             });
-            $(link_priceFlatUp).each(function() {
+            $(link_priceFlatHigh).each(function() {
                 var link = $(this);
                 var text = link.text().trim();
-                json.priceFlatUp = text;
+                json.priceFlatHigh = text;
             });
         }
 
