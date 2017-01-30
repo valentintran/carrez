@@ -1,7 +1,22 @@
-var http = require('http');
+// server.js
 
-var server = http.createServer(function(req, res) {
-  res.writeHead(200);
-  res.end('Salut tout le monde !');
+var http = require('http');
+var fs = require('fs');
+var express = require('express');
+var app = express();
+var connect = require('connect');
+var serveStatic = require('serve-static');
+
+
+app.set('view engine','ejs');
+
+app.get('/', function(req, res){
+	res.render('index');
 });
-server.listen(8080);
+
+app.use('/assets', express.static('assets'));
+app.use('/images', express.static('images'));
+
+connect().use(serveStatic(__dirname)).listen(3000, function(){
+    console.log('Server running on 3000...');
+});
