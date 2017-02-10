@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<!--Cogent by Pixelaritypixelarity.com @pixelarityLicense: pixelarity.com/license-->
+<html>
+	<head>
+		<title>Carrez</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]>
+		<script src="assets/js/ie/html5shiv.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]>
+		<link rel="stylesheet" href="assets/css/ie8.css" />
+		<![endif]-->
+		<!--[if lte IE 9]>
+		<link rel="stylesheet" href="assets/css/ie9.css" />
+		<![endif]-->
+	</head>
+	<body class="landing">
+		<!-- Header -->
+		<header id="header" class="alt">
+			<h1>
+				<a id="logo" href="index.html">Carrez <span>by Valentin & Raphael</span></a>
+			</h1>
+		</header>
+		<!-- Banner -->
+		<section id="banner">
+			<div class="inner">
+
+          <form action = "http://localhost:3000/process_get" method = "GET">
+              <input id="url" name = "url" type="text" value="https://www.leboncoin.fr/ventes_immobilieres/1091082199.htm?ca=12_s"  placeholder="http://leboncoin.fr/..." required/>
+              <br>
+              <input type="submit" class="special big" value="Compute">
+          </form>
+
+			</div>
+	</section>
+	<!-- One -->
+	<section id="one" class="wrapper style1">
+		<div class="container">
+			<div class="row">
+				<div class="4u 12u$(medium)">
+
+
+					<h3 class="icon fa-cube">Le bon coin</h3>
+					<p>
+						Ville :
+						<span id="lbc-city"> </span>
+						<br/>
+						Type :
+						<span id="lbc-type"> </span>
+						<br/>
+						Estimation du prix au m
+						<sup>2</sup> :
+						<span id="lbc-price-per-m"> </span>
+						<br/>
+						Prix de vente :
+						<span id="lbc-price"> </span>
+					</p>
+				</div>
+				<div class="4u 12u$(medium)">
+
+
+					<h3 class="icon fa-search">Meilleurs agents</h3>
+					<p>Pour une maison</p>
+					<p>
+						Prix bas au m
+						<sup>2</sup> :
+						<span id="ma-price-house-low-per-m"> </span>
+						<br/>
+						Prix moyen au m
+						<sup>2</sup> :
+						<span id="ma-price-house-med-per-m"> </span>
+						<br/>
+						Prix haut au m<sup>2</sup> :
+						<span id="ma-price-house-high-per-m"> </span>
+						<br/>
+						Estimation du prix de vente :
+						<span id="ma-price-house"> </span>
+					</p>
+					<p>Pour un appartement</p>
+					<p>
+						Prix bas au m
+						<sup>2</sup> :
+						<span id="ma-price-flat-low-per-m"> </span>
+						<br/>
+						Prix moyen au m
+						<sup>2</sup> :
+						<span id="ma-price-flat-med-per-m"> </span>
+						<br/>
+						Prix haut au m<sup>2</sup> :
+						<span id="ma-price-flat-high-per-m"> </span>
+						<br/>
+						Estimation du prix de vente :
+						<span id="ma-price-flat"> </span>
+					</p>
+				</div>
+				<div class="4u$ 12u$(medium)">
+
+
+					<h3 class="icon fa-home">GOOD DEAL !</h3>
+					<p>
+						Écart de prix :
+						<span id="diff">Good Deal !</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+	<!-- Scripts -->
+
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script type="text/javascript">
+	
+			$(document).ready(function() {
+					$.getJSON("output.json", function(result) {
+							$('#lbc-type').append(result.type);
+							$('#lbc-city').append(result.town);
+
+							var ppp = result.price / result.surface;
+							ppp = ppp.toFixed(2);
+
+							$('#lbc-price').append(result.price + " €");
+							$('#lbc-price-per-m').append(ppp + " €/m2");
+					});
+					$.getJSON("outputMA.json", function(result) {
+					
+							$('#ma-price-house-low-per-m').append(result.priceHouseLow);
+							$('#ma-price-house-med-per-m').append(result.priceHouseMed);
+							$('#ma-price-house-high-per-m').append(result.priceHouseHigh);
+							$('#ma-price-house').append(result.priceHouseLow);
+							$('#ma-price-flat-low-per-m').append(result.priceFlatLow);
+							$('#ma-price-flat-med-per-m').append(result.priceFlatMed);
+							$('#ma-price-flat-high-per-m').append(result.priceFlatHigh);
+							$('#ma-price-flat').append(result.priceFlatLow);
+							
+					});
+			});
+	</script>
+	
+	
+	
+
+
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/jquery.scrollgress.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<!--[if lte IE 8]>
+	<script src="assets/js/ie/respond.min.js"></script>
+	<![endif]-->
+	<script src="assets/js/main.js"></script>
+</body>
+</html>
