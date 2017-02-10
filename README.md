@@ -1,4 +1,6 @@
 # LOI CARREZ
+#I worked with Raphael Sebban (raphaelsebb)
+
 
 > node.js workshop based on real estate
 
